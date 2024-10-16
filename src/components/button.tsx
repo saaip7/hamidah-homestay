@@ -8,9 +8,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        default: "bg-color-red text-white hover:bg-[#E05353] font-semibold font-['Geist']",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        default: "bg-color-red text-white hover:bg-[#E05353] font-semibold",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -24,7 +26,7 @@ const buttonVariants = cva(
       size: "default",
     },
   }
-);
+)
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -34,7 +36,7 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }: ButtonProps & { as?: React.ElementType }, ref) => {
-    const Comp: any = asChild ? (props as any).as || "button" : "button"; // Menggunakan props.as untuk mengganti Slot
+    const Comp: any = asChild ? (props as any).as || "button" : "button";
 
     return (
       <Comp
