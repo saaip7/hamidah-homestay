@@ -3,6 +3,9 @@ import Link from "next/link";
 
 import {Button} from "@/components/button";
 import {Carousel, CarouselApi, CarouselPrevious, CarouselNext, CarouselContent, CarouselItem} from "@/components/carousel";
+import Card from "@/components/card";
+import { Bed, CircleParking , Utensils , Wifi, TvMinimal, ShowerHead   } from 'lucide-react'; 
+
 
 export default function Home() {
 
@@ -12,6 +15,15 @@ export default function Home() {
     "/galeri/3.JPG",
     "/galeri/4.JPG",
     "/galeri/5.JPG",
+  ];
+
+  const facilities = [
+    { icon: <Bed className="w-10 h-10 "/>, title: "2 Kamar Tidur" },
+    { icon: <Wifi className="w-10 h-10 " />, title: "Wi-Fi" },
+    { icon: <Utensils className="w-10 h-10 " />, title: "Dapur & Ruang Makan" },
+    { icon: <TvMinimal  className="w-10 h-10 "/>, title: "Ruang Tamu" },
+    { icon: <CircleParking className="w-10 h-10 " />, title: "Lahan Parkir" },
+    { icon: <ShowerHead className="w-10 h-10"/>, title: "Kamar Mandi" }
   ];
 
 return (
@@ -71,6 +83,8 @@ return (
             </div>
           </div>
         </section>
+
+        {/* Galeri */}
         <section id="galeri" className="w-full py-10 md:py-16 lg:py-24 bg-white">
           <div className="container px-4 md:px-6 text-color-black font-['Geist'] justify-center items-center flex mx-auto">
             <div>
@@ -85,11 +99,11 @@ return (
                   {galeriCarousel.map((imageSrc, index) => (
                     <CarouselItem key={index} className="h-[450px]"> 
                       <Image
-                        src={imageSrc}
-                        alt={`Homestay Image ${index + 1}`}
-                        width={1000}   
-                        height={600}   
-                        className="rounded-lg object-cover w-full h-full" 
+                      src={imageSrc}
+                      alt={`Homestay Image ${index + 1}`}
+                      width={1000}   
+                      height={600}   
+                      className="rounded-3xl object-cover w-full h-full" 
                       />
                     </CarouselItem>
                   ))}
@@ -100,6 +114,33 @@ return (
             </div>
           </div>
         </section>
+
+        {/* Fasilitas */}
+        <section className="flex overflow-hidden flex-col justify-center items-center px-16 py-20 bg-color-bg-red max-md:px-5 font-['Geist']">
+          <div className="w-full max-w-[1091px] max-md:max-w-full">
+            <div className="flex gap-5 max-md:flex-col">
+              <div className="flex flex-col w-2/5 max-md:ml-0 max-md:w-full">
+                <div className="flex flex-col mt-3.5 max-md:mt-10">
+                  <h2 className="self-start text-3xl md:text-4xl font-bold text-color-black">
+                    Dilengkapi dengan fasilitas terbaik
+                  </h2>
+                  <p className="mt-2 text-base leading-6 text-color-gray">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col ml-5 w-3/5 max-md:ml-0 max-md:w-full">
+                <div className="flex flex-wrap grow gap-6 justify-between items-start max-md:mt-10">
+                  {facilities.map((facility, index) => (
+                    <Card key={index} icon={facility.icon} title={facility.title} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
       </main>
     </div>
 );
