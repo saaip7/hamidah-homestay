@@ -6,6 +6,7 @@ import {Carousel, CarouselApi, CarouselPrevious, CarouselNext, CarouselContent, 
 import Card from "@/components/card";
 import { Bed, CircleParking , Utensils , Wifi, TvMinimal, ShowerHead   } from 'lucide-react'; 
 
+import Map from "@/components/Map/Map";
 
 export default function Home() {
 
@@ -139,6 +140,38 @@ return (
             </div>
           </div>
         </section>
+
+        {/* Lokasi */}
+        <section id="lokasi" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+          <div className="w-full max-w-[1091px] max-md:max-w-full mx-auto font-['Geist'] ">
+            <div className="flex gap-5 max-md:flex-col">
+              <div className="flex flex-col w-2/5 max-md:ml-0 max-md:w-full">
+                <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl text-color-black">
+                  Lokasi Kami
+                </h2>
+                <div className="mt-2">
+                  <h3 className="text-xl font-medium text-color-red">Hamidah Homestay Sungailiat</h3>
+                  <p className="text-color-gray mt-0.5">
+                    Sungailiat, Sungai Liat, Bangka Regency, Bangka Belitung Islands 33211, Indonesia
+                  </p>
+                </div>
+                <a href="https://maps.app.goo.gl/KBrZEsX84y8dJre79" target="_blank" rel="noopener noreferrer">
+                  <Button variant="default" className="mr-auto mt-4">
+                    Lihat Peta
+                  </Button>
+                </a>
+              </div>
+              <div className="flex flex-col ml-5 w-3/5 max-md:ml-0 max-md:w-full height-[1000px]">
+                <div className="rounded-xl overflow-hidden">
+                <Map
+                />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+          
 
 
       </main>
