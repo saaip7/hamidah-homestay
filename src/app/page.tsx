@@ -3,8 +3,10 @@ import Link from "next/link";
 
 import {Button} from "@/components/button";
 import {Carousel, CarouselApi, CarouselPrevious, CarouselNext, CarouselContent, CarouselItem} from "@/components/carousel";
-import Card from "@/components/card";
-import { Bed, CircleParking , Utensils , Wifi, TvMinimal, ShowerHead   } from 'lucide-react'; 
+import CardFasilitas from "@/components/cardFasilitas";
+import { Bed, CircleParking , Utensils , Wifi, TvMinimal, ShowerHead, Star  } from 'lucide-react'; 
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/card"; 
+import { Accordion, AccordionItem } from "@/components/accordion";
 
 import Map from "@/components/Map/Map";
 
@@ -79,7 +81,7 @@ return (
                 Semua yang Anda butuhkan untuk liburan yang sempurna ada di sini.
               </p>              
               <div className="mt-6"> 
-                <Button variant="default" className="mr-auto">Hubungi Kami</Button>
+                <Button variant="default" className="mr-auto hover:scale-[102%] transition-all duration-700 ease-in-out">Hubungi Kami</Button>
               </div>
             </div>
           </div>
@@ -117,7 +119,7 @@ return (
         </section>
 
         {/* Fasilitas */}
-        <section className="flex overflow-hidden flex-col justify-center items-center px-16 py-20 bg-color-bg-red max-md:px-5 font-['Geist']">
+        <section id= "fasilitas" className="flex overflow-hidden flex-col justify-center items-center px-16 py-24 bg-color-bg-red max-md:px-5 font-['Geist']">
           <div className="w-full max-w-[1091px] max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col">
               <div className="flex flex-col w-2/5 max-md:ml-0 max-md:w-full">
@@ -133,7 +135,7 @@ return (
               <div className="flex flex-col ml-5 w-3/5 max-md:ml-0 max-md:w-full">
                 <div className="flex flex-wrap grow gap-6 justify-between items-start max-md:mt-10">
                   {facilities.map((facility, index) => (
-                    <Card key={index} icon={facility.icon} title={facility.title} />
+                    <CardFasilitas key={index} icon={facility.icon} title={facility.title} />
                   ))}
                 </div>
               </div>
@@ -156,8 +158,8 @@ return (
                   </p>
                 </div>
                 <a href="https://maps.app.goo.gl/KBrZEsX84y8dJre79" target="_blank" rel="noopener noreferrer">
-                  <Button variant="default" className="mr-auto mt-4">
-                    Lihat Peta
+                  <Button variant="default" className="mr-auto mt-4 hover:scale-[102%] transition-all duration-700 ease-in-out">
+                    Lihat Lokasi
                   </Button>
                 </a>
               </div>
@@ -171,8 +173,105 @@ return (
           </div>
         </section>
 
-          
+        {/* Review */}
+        <section id="review" className="w-full py-12 md:py-24 lg:py-36 bg-color-bg-red font-['Geist']">
+          <div className="container max-w-[1280px] max-md:max-w-full mx-auto">
+            <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl mb-6 text-center text-color-black">Apa kata mereka</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  name: "Isabella Chavez",
+                  comment: "You made it so simple. My new site is so much faster and easier to work with than my old site.",
+                  role: "Product Designer",
+                  rating: 5
+                },
+                {
+                  name: "Curtis Rhodes",
+                  comment: "Simply the best. Better than all the rest. I'd recommend this product to beginners and advanced users.",
+                  role: "Front-end Developer",
+                  rating: 5
+                },
+                {
+                  name: "Lucas Mann",
+                  comment: "Must have tool for all, who want to be Product Designer or Interaction Designer",
+                  role: "UX Designer",
+                  rating: 4
+                }
+              ].map((review, index) => (
+                <Card key={index}>
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`h-5 w-5 ${
+                            i < review.rating ? "text-yellow-400 fill-current" : "text-gray-300"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <p className="text-color-black mb-4">{review.comment}</p>
+                    <div>
+                      <p className="font-semibold text-color-red">{review.name}</p>
+                      <p className="text-sm text-color-gray">{review.role}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
 
+        {/* Peraturan */}
+        <section id="peraturan" className="w-full py-12 md:py-22 lg:py-28 bg-white font-['Geist']">
+          <div className="container max-w-[1091px] max-md:max-w-full mx-auto ">
+            <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl mb-8 text-center text-color-black">
+              Ketentuan dan Peraturan
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-color-red">Ketentuan</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="list-disc pl-5 space-y-2 text-color-gray">
+                    <li>Check-in time: 2:00 PM</li>
+                    <li>Check-out time: 11:00 AM</li>
+                    <li>No smoking inside the property</li>
+                    <li>Pets are not allowed</li>
+                    <li>Quiet hours: 10:00 PM - 7:00 AM</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-color-red">Peraturan</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="list-disc pl-5 space-y-2 text-color-gray">
+                    <li>Respect the property and neighbors</li>
+                    <li>Keep the homestay clean and tidy</li>
+                    <li>Report any damages or issues promptly</li>
+                    <li>Do not invite unregistered guests</li>
+                    <li>Follow local laws and regulations</li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="w-full md:h-[8.802vw] md:aspect-ratio[1920/1080] aspect-ratio[430/226] p-8 flex flex-col justify-center items-center bg-color-red text-gray-800 relative">
+          <div className="md:w-[33.417vw] md:h-[2.604vw] w-[72.791vw] h-[31.628vw] flex md:flex-row flex-col items-center justify-center">
+            <h1 className="text-white text-[6vw] md:text-[1.667vw] text-center font-bold md:mr-[2.5vw]">
+              Ingin liburan yang pas?
+            </h1>
+            <Button variant="outline" className="mr-auto hover:scale-[102%] transition-all duration-700 ease-in-out">
+              Hubungi Kami
+            </Button>
+          </div>
+        </section>
 
       </main>
     </div>
