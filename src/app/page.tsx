@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image";
-import Link from "next/link";
 
 import {Button} from "@/components/button";
 import {Carousel, CarouselPrevious, CarouselNext, CarouselContent, CarouselItem} from "@/components/carousel";

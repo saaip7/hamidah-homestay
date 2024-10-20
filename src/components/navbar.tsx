@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Button, buttonVariants } from "./button";
+import { Button } from "./button";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
