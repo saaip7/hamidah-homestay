@@ -10,6 +10,7 @@ import { Bed, CircleParking , Utensils , Wifi, TvMinimal, ShowerHead, Star   } f
 import { Card, CardContent,  CardHeader, CardTitle } from "@/components/card"; 
 import { Copyright } from "lucide-react";
 import { FaWhatsapp, FaInstagram  } from "react-icons/fa";
+import Navbar from "@/components/navbar";
 
 import dynamic from 'next/dynamic';
 
@@ -36,39 +37,11 @@ export default function Home() {
   ];
 
 return (
-    <div>
-      <header className="px-2rem lg:px-[6rem] xl:px-[10rem] py-4 h-[14] flex items-center bg-white justify-between">
-        <div className="flex items-center font-['Geist']">
-          <Link href="#" className="flex items-center justify-center mr-4">
-            <div className="hover:scale-110 transition-transform duration-300 will-change-transform">
-              <Image src="/img/Logo2.png" alt="Logo" width={40} height={40} />
-            </div>
-          </Link>
-          <nav className="px-[16px] lg:px-[20px] flex gap-4 sm:gap-6">
-            <Link className="text-sm font-semibold hover:underline underline-offset-4 text-color-black hover:text-color-red" href="#galeri">
-              Galeri
-            </Link>
-            <Link className="text-sm font-semibold hover:underline underline-offset-4 text-color-black hover:text-color-red" href="#fasilitas">
-              Fasilitas
-            </Link>
-            <Link className="text-sm font-semibold hover:underline underline-offset-4 text-color-black hover:text-color-red" href="#lokasi">
-              Lokasi
-            </Link>
-            <Link className="text-sm font-semibold hover:underline underline-offset-4 text-color-black hover:text-color-red" href="#review">
-              Review
-            </Link>
-            <Link className="text-sm font-semibold hover:underline underline-offset-4 text-color-black hover:text-color-red" href="#peraturan">
-              Peraturan
-            </Link>
-          </nav>
-        </div>
-        <a href="https://wa.me/62817379195" target="_blank" rel="noopener noreferrer" >
-          <Button variant="default" className="ml-auto">Kontak Kami</Button>
-        </a>
-      </header>
+    <div className="relative">
+      <Navbar/>
       {/* Main Page */}
       <main className="flex-1">
-      <section className="relative w-full h-[720px]">
+      <section className="relative w-full h-[900px]">
           <Image 
             src="/img/hero.JPG?height=1080&width=1920&text=Homestay+Hero+Image" 
             fill 
@@ -77,7 +50,7 @@ return (
           />
           <div className="absolute inset-0 bg-black bg-opacity-40" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white font-['Geist']">
+            <div data-aos="fade-left" className="text-center text-white font-['Geist'] aos-init aos-animate">
               <h1 className="text-3xl font-semibold mb-2 font-['Geist']">
                 Hamidah Homestay
               </h1>
@@ -106,7 +79,7 @@ return (
               <p className="text-center mt-2 text-color-gray">
                 Jelajahi setiap sudut homestay kami melalui galeri foto
               </p>
-              <Carousel className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto mt-8">
+              <Carousel data-aos="fade-up" className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto mt-8 aos-init aos-animate">
                 <CarouselContent>
                   {galeriCarousel.map((imageSrc, index) => (
                     <CarouselItem key={index} className="h-[450px]"> 
@@ -364,15 +337,6 @@ return (
         </div>
       </section>
       </footer>
-      {/* {showBackToTop && (
-      <Button
-        className="fixed bottom-4 right-4 rounded-full p-2 bg-pink-600 text-white hover:bg-pink-700 transition-all duration-300 shadow-lg"
-        onClick={scrollToTop}
-        aria-label="Back to top"
-      >
-        <ArrowUp className="h-6 w-6"  />
-      </Button>
-)} */}
     <BackToTop />
     </div>
 );
