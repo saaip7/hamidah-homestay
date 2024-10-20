@@ -6,37 +6,20 @@ import Link from "next/link";
 import {Button} from "@/components/button";
 import {Carousel, CarouselPrevious, CarouselNext, CarouselContent, CarouselItem} from "@/components/carousel";
 import CardFasilitas from "@/components/cardFasilitas";
-import { Bed, CircleParking , Utensils , Wifi, TvMinimal, ShowerHead, Star, ArrowUp   } from 'lucide-react'; 
+import { Bed, CircleParking , Utensils , Wifi, TvMinimal, ShowerHead, Star   } from 'lucide-react'; 
 import { Card, CardContent,  CardHeader, CardTitle } from "@/components/card"; 
 import { Copyright } from "lucide-react";
 import { FaWhatsapp, FaInstagram  } from "react-icons/fa";
 
-import { useEffect, useState } from "react";
 
-import Map from "@/components/Map/Map";
+// import { useEffect, useState } from "react";
 
+import dynamic from 'next/dynamic';
+
+const BackToTop = dynamic(() => import('@/components/backToTop'), { ssr: false });
+const Map = dynamic(() => import('@/components/Map/Map'), { ssr: false });
 
 export default function Home() {
-  const [showBackToTop, setShowBackToTop] = useState(false)
-
-  useEffect(() => {
-    // Only add the scroll event listener if we're in the browser
-    if (typeof window !== 'undefined') {
-      const handleScroll = () => {
-        setShowBackToTop(window.scrollY > 300);
-      };
-
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    }
-  }, []);
-
-  const scrollToTop = () => {
-    // Ensure we're in the browser before calling window.scrollTo
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
 
   const galeriCarousel = [
     "/galeri/1.JPG",
@@ -89,12 +72,11 @@ return (
       {/* Main Page */}
       <main className="flex-1">
       <section className="relative w-full h-[720px]">
-          <Image
-            src="/img/hero.JPG?height=1080&width=1920&text=Homestay+Hero+Image"
-            alt="Homestay Hero"
-            layout="fill"
-            objectFit="cover"
-            priority
+          <Image 
+            src="/img/hero.JPG?height=1080&width=1920&text=Homestay+Hero+Image" 
+            fill 
+            style={{ objectFit: 'cover' }} 
+            alt="Homestay Hero Image" 
           />
           <div className="absolute inset-0 bg-black bg-opacity-40" />
           <div className="absolute inset-0 flex items-center justify-center">
@@ -385,7 +367,7 @@ return (
         </div>
       </section>
       </footer>
-      {showBackToTop && (
+      {/* {showBackToTop && (
       <Button
         className="fixed bottom-4 right-4 rounded-full p-2 bg-pink-600 text-white hover:bg-pink-700 transition-all duration-300 shadow-lg"
         onClick={scrollToTop}
@@ -393,7 +375,8 @@ return (
       >
         <ArrowUp className="h-6 w-6"  />
       </Button>
-)}
+)} */}
+    <BackToTop />
     </div>
 );
 }
