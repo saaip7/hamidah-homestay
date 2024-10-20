@@ -15,7 +15,7 @@ const config: Config = {
         'color-white': '#FFFFFF',
         'color-red': '#C33030',
         'color-gray': '#555555',
-        'color-bg-red': '#FFF3F3',
+        'color-pink': '#FFF3F3',
         'color-stroke': '#E8E8E8'
       },
     },

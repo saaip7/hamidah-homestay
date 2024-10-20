@@ -1,16 +1,36 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
 
 import {Button} from "@/components/button";
 import {Carousel, CarouselApi, CarouselPrevious, CarouselNext, CarouselContent, CarouselItem} from "@/components/carousel";
 import CardFasilitas from "@/components/cardFasilitas";
-import { Bed, CircleParking , Utensils , Wifi, TvMinimal, ShowerHead, Star  } from 'lucide-react'; 
+import { Bed, CircleParking , Utensils , Wifi, TvMinimal, ShowerHead, Star, ArrowUp   } from 'lucide-react'; 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/card"; 
-import { Accordion, AccordionItem } from "@/components/accordion";
+import { Copyright } from "lucide-react";
+import { FaWhatsapp, FaInstagram  } from "react-icons/fa";
+
+import { useEffect, useState } from "react";
 
 import Map from "@/components/Map/Map";
 
+
 export default function Home() {
+  const [showBackToTop, setShowBackToTop] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 300)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   const galeriCarousel = [
     "/galeri/1.JPG",
@@ -31,7 +51,7 @@ export default function Home() {
 
 return (
     <div>
-      <header className="px-2rem lg:px-[6rem] xl:px-[10rem] py-4 h-[14] flex items-center bg-white">
+      <header className="px-2rem lg:px-[6rem] xl:px-[10rem] py-4 h-[14] flex items-center bg-white justify-between">
         <div className="flex items-center font-['Geist']">
           <Link href="#" className="flex items-center justify-center mr-4">
             <div className="hover:scale-110 transition-transform duration-300 will-change-transform">
@@ -56,7 +76,9 @@ return (
             </Link>
           </nav>
         </div>
-        <Button variant="default" className="ml-auto">Kontak Kami</Button>
+        <a href="https://wa.me/62817379195" target="_blank" rel="noopener noreferrer" >
+          <Button variant="default" className="ml-auto">Kontak Kami</Button>
+        </a>
       </header>
       {/* Main Page */}
       <main className="flex-1">
@@ -80,8 +102,10 @@ return (
               <p className="mt-2 max-w-[500px] text-sm sm:text-lg md:text-xl mx-auto">
                 Semua yang Anda butuhkan untuk liburan yang sempurna ada di sini.
               </p>              
-              <div className="mt-6"> 
+              <div className="mt-6">
+              <a href="https://wa.me/62817379195" target="_blank" rel="noopener noreferrer" >
                 <Button variant="default" className="mr-auto hover:scale-[102%] transition-all duration-700 ease-in-out">Hubungi Kami</Button>
+              </a> 
               </div>
             </div>
           </div>
@@ -119,7 +143,7 @@ return (
         </section>
 
         {/* Fasilitas */}
-        <section id= "fasilitas" className="flex overflow-hidden flex-col justify-center items-center px-16 py-24 bg-color-bg-red max-md:px-5 font-['Geist']">
+        <section id= "fasilitas" className="flex overflow-hidden flex-col justify-center items-center px-16 py-24 bg-color-pink max-md:px-5 font-['Geist']">
           <div className="w-full max-w-[1091px] max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col">
               <div className="flex flex-col w-2/5 max-md:ml-0 max-md:w-full">
@@ -174,9 +198,9 @@ return (
         </section>
 
         {/* Review */}
-        <section id="review" className="w-full py-12 md:py-24 lg:py-36 bg-color-bg-red font-['Geist']">
+        <section id="review" className="w-full py-12 md:py-20 lg:py-28 bg-color-pink font-['Geist']">
           <div className="container max-w-[1280px] max-md:max-w-full mx-auto">
-            <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl mb-6 text-center text-color-black">Apa kata mereka</h2>
+            <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl mb-8 text-center text-color-black">Apa kata mereka</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
@@ -262,18 +286,108 @@ return (
         </section>
 
         {/* CTA */}
-        <section className="w-full md:h-[8.802vw] md:aspect-ratio[1920/1080] aspect-ratio[430/226] p-8 flex flex-col justify-center items-center bg-color-red text-gray-800 relative">
-          <div className="md:w-[33.417vw] md:h-[2.604vw] w-[72.791vw] h-[31.628vw] flex md:flex-row flex-col items-center justify-center">
-            <h1 className="text-white text-[6vw] md:text-[1.667vw] text-center font-bold md:mr-[2.5vw]">
+        <section className="w-full md:h-[8.802vw] py-24 md:aspect-ratio[1920/1080] aspect-ratio[430/226] p-8 flex flex-col justify-center items-center bg-color-pink relative font-['Geist']">
+          <div className="w-[fit-content] flex md:flex-row flex-col items-center justify-center mx-auto">
+            <h1 className="text-[6vw] md:text-3xl text-center font-bold md:mr-[1.5vw] text-color-black">
               Ingin liburan yang pas?
             </h1>
-            <Button variant="outline" className="mr-auto hover:scale-[102%] transition-all duration-700 ease-in-out">
-              Hubungi Kami
-            </Button>
+            <a href="https://wa.me/62817379195" target="_blank" rel="noopener noreferrer" >
+              <Button variant="default" className="mr-auto hover:scale-[102%] transition-all duration-700 ease-in-out">
+                Hubungi Kami
+              </Button>
+            </a>
           </div>
         </section>
-
       </main>
+
+      {/* Footer */}
+      <footer>
+        <section className="w-full h-[122.093vw] md:h-[16.823vw] aspect-[430/525] md:aspect-[1920/1080] flex flex-col justify-start items-center bg-color-red relative font-['Geist'] text-color-white">
+        <div className="w-full h-[105.349vw] md:h-[12.917vw] p-[3vw] flex flex-col justify-center items-center relative">
+          <div className="w-[81.395vw] h-[fit-content] flex flex-col md:flex-row justify-between items-start relative">
+            <div className="flex items-center">
+              <Image
+                    src= "/img/logo2.png"
+                    width={10000}
+                    height={10000}
+                    alt="logo hamidah homestay"
+                    className="w-[4.15vw] h-[4.15vw] filter invert"
+                  />
+              
+              <h1 className="text-[5.581vw] md:text-[1.25vw] font-bold text-color-white">
+                Hamidah Homestay
+              </h1> 
+            </div>
+            <div className="w-full md:w-[20.99vw]">
+              <h1 className="text-[4.186vw] md:text-[1.042vw] font-bold text-right">
+                Hamidah Homestay Sungailiat
+              </h1>
+              <p className="text-[3.721vw] md:text-[0.938vw] text-right">
+               Sungailiat, Sungai Liat, Bangka Regency, Bangka Belitung Islands 33211, Indonesia
+              </p>
+              <div className="flex items-end justify-end mt-2 gap-2">
+                <a href="https://www.instagram.com/hamidah.homestay/" target="_blank" rel="noopener noreferrer"               
+                >
+                  <FaInstagram   
+                    className="w-[1.8vw] h-[1.8vw] text-color-white hover:text-[#f87171] transition-all duration-300 ease-in-out"
+                  />
+
+                </a>
+                <a href="https://maps.app.goo.gl/KBrZEsX84y8dJre79" target="_blank" rel="noopener noreferrer"               
+                >
+                  <FaWhatsapp
+                  className="w-[1.8vw] h-[1.8vw] text-color-white hover:text-[#f87171] transition-all duration-300 ease-in-out"/>
+
+                </a>
+              </div>
+            </div>
+          </div>
+          </div>
+        <div className="w-full h-[16.744vw] md:h-[3.906vw] flex justify-center items-center bg-[#9E1515]">
+          <div className="h-[8.372vw] md:w-[81.395vw] md:h-[0.99vw] flex flex-row justify-between items-center">
+            <div className="flex items-center md:flex-row flex-col">
+              <div className="flex">
+                <Copyright
+                  className="w-[4.419vw] h-[4.419vw] md:w-[0.99vw] md:h-[0.99vw] mx-[0.2vw]"
+                />
+              </div>
+              <p className="text-[3vw] md:text-[0.833vw] font-semibold md:hidden">
+                2024 Hamidah Homestay. All rights reserved.
+              </p>
+              <p className="text-[3.256vw] md:text-[0.833vw] font-semibold md:block hidden">
+                2024 Hamidah Homestay. All rights reserved.
+              </p>
+            </div>
+            <div className="md:flex hidden">
+              <a href="#galeri" className="text-[0.833vw] font-bold hover:underline">
+                Galeri
+              </a>
+              <a href="#fasilitas" className="text-[0.833vw] font-bold ml-[1.25vw] hover:underline">
+                Fasilitas
+              </a>
+              <a href="#lokasi" className="text-[0.833vw] font-bold ml-[1.25vw] hover:underline">
+                Lokasi
+              </a>
+              <a href="#review" className="text-[0.833vw] font-bold ml-[1.25vw] hover:underline">
+                Review
+              </a>
+              <a href="#peraturan" className="text-[0.833vw] font-bold ml-[1.25vw] hover:underline">
+                Peraturan
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      </footer>
+      {showBackToTop && (
+      <Button
+        className="fixed bottom-4 right-4 rounded-full p-2 bg-pink-600 text-white hover:bg-pink-700 transition-all duration-300 shadow-lg"
+        onClick={scrollToTop}
+        aria-label="Back to top"
+      >
+        <ArrowUp className="h-6 w-6"  />
+      </Button>
+)}
     </div>
 );
 }
