@@ -4,10 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import {Button} from "@/components/button";
-import {Carousel, CarouselApi, CarouselPrevious, CarouselNext, CarouselContent, CarouselItem} from "@/components/carousel";
+import {Carousel, CarouselPrevious, CarouselNext, CarouselContent, CarouselItem} from "@/components/carousel";
 import CardFasilitas from "@/components/cardFasilitas";
 import { Bed, CircleParking , Utensils , Wifi, TvMinimal, ShowerHead, Star, ArrowUp   } from 'lucide-react'; 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/card"; 
+import { Card, CardContent,  CardHeader, CardTitle } from "@/components/card"; 
 import { Copyright } from "lucide-react";
 import { FaWhatsapp, FaInstagram  } from "react-icons/fa";
 
@@ -20,17 +20,23 @@ export default function Home() {
   const [showBackToTop, setShowBackToTop] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 300)
-    }
+    // Only add the scroll event listener if we're in the browser
+    if (typeof window !== 'undefined') {
+      const handleScroll = () => {
+        setShowBackToTop(window.scrollY > 300);
+      };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+    // Ensure we're in the browser before calling window.scrollTo
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   const galeriCarousel = [
     "/galeri/1.JPG",
@@ -152,7 +158,7 @@ return (
                     Dilengkapi dengan fasilitas terbaik
                   </h2>
                   <p className="mt-2 text-base leading-6 text-color-gray">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy
                   </p>
                 </div>
               </div>

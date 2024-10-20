@@ -26,17 +26,18 @@ const buttonVariants = cva(
       size: "default",
     },
   }
-)
+);
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  as?: React.ElementType; // Update the type for the "as" prop
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }: ButtonProps & { as?: React.ElementType }, ref) => {
-    const Comp: any = asChild ? (props as any).as || "button" : "button";
+  ({ className, variant, size, asChild = false, as: Component = "button", ...props }, ref) => {
+    const Comp: React.ElementType = asChild ? Component : "button"; // Use React.ElementType
 
     return (
       <Comp
