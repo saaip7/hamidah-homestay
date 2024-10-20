@@ -11,9 +11,6 @@ import { Card, CardContent,  CardHeader, CardTitle } from "@/components/card";
 import { Copyright } from "lucide-react";
 import { FaWhatsapp, FaInstagram  } from "react-icons/fa";
 
-
-// import { useEffect, useState } from "react";
-
 import dynamic from 'next/dynamic';
 
 const BackToTop = dynamic(() => import('@/components/backToTop'), { ssr: false });
@@ -44,7 +41,7 @@ return (
         <div className="flex items-center font-['Geist']">
           <Link href="#" className="flex items-center justify-center mr-4">
             <div className="hover:scale-110 transition-transform duration-300 will-change-transform">
-              <Image src="/img/logo2.png" alt="Logo" width={40} height={40} />
+              <Image src="/img/Logo2.png" alt="Logo" width={40} height={40} />
             </div>
           </Link>
           <nav className="px-[16px] lg:px-[20px] flex gap-4 sm:gap-6">
@@ -295,7 +292,7 @@ return (
           <div className="w-[81.395vw] h-[fit-content] flex flex-col md:flex-row justify-between items-start relative">
             <div className="flex items-center">
               <Image
-                    src= "/img/logo2.png"
+                    src= "/img/Logo2.png"
                     width={10000}
                     height={10000}
                     alt="logo hamidah homestay"
