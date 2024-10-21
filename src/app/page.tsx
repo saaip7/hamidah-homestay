@@ -10,6 +10,10 @@ import { Card, CardContent,  CardHeader, CardTitle } from "@/components/card";
 import { Copyright } from "lucide-react";
 import { FaWhatsapp, FaInstagram  } from "react-icons/fa";
 import Navbar from "@/components/navbar";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 import dynamic from 'next/dynamic';
 
@@ -17,6 +21,13 @@ const BackToTop = dynamic(() => import('@/components/backToTop'), { ssr: false }
 const Map = dynamic(() => import('@/components/Map/Map'), { ssr: false });
 
 export default function Home() {
+  useEffect(() => {
+		AOS.init({
+			duration: 1500,
+      once: false
+		});
+	}, []);
+
 
   const galeriCarousel = [
     "/galeri/1.JPG",
@@ -49,20 +60,22 @@ return (
           />
           <div className="absolute inset-0 bg-black bg-opacity-40" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div data-aos="fade-left" className="text-center text-white font-['Geist'] aos-init aos-animate">
-              <h1 className="text-3xl font-semibold mb-2 font-['Geist']">
-                Hamidah Homestay
-              </h1>
-              <h2 className="text-4xl tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-medium">
-                Liburan Dimulai Dari Sini
-              </h2>
-              <p className="mt-2 max-w-[500px] text-sm sm:text-lg md:text-xl mx-auto">
-                Semua yang Anda butuhkan untuk liburan yang sempurna ada di sini.
-              </p>              
-              <div className="mt-6">
-              <a href="https://wa.me/62817379195" target="_blank" rel="noopener noreferrer" >
-                <Button variant="default" className="mr-auto hover:scale-[102%] transition-all duration-700 ease-in-out">Hubungi Kami</Button>
-              </a> 
+            <div className="text-center text-white font-['Geist']">
+              <div data-aos="fade-down" className="aos-init aos-animate">
+                <h1 className="text-3xl font-semibold mb-2 font-['Geist']">
+                    Hamidah Homestay
+                  </h1>
+                  <h2 className="text-4xl tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-medium">
+                    Liburan Dimulai Dari Sini
+                  </h2>
+                  <p className="mt-2 max-w-[500px] text-sm sm:text-lg md:text-xl mx-auto">
+                    Semua yang Anda butuhkan untuk liburan yang sempurna ada di sini.
+                  </p>              
+                  <div className="mt-6">
+                  <a href="https://wa.me/62817379195" target="_blank" rel="noopener noreferrer" >
+                    <Button variant="default" className="mr-auto hover:scale-[102%] transition-all duration-700 ease-in-out">Hubungi Kami</Button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -103,7 +116,7 @@ return (
         <section id= "fasilitas" className="flex overflow-hidden flex-col justify-center items-center px-16 py-24 bg-color-pink max-md:px-5 font-['Geist']">
           <div className="w-full max-w-[1091px] max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col">
-              <div className="flex flex-col w-2/5 max-md:ml-0 max-md:w-full">
+              <div data-aos="fade-right" className="flex flex-col w-2/5 max-md:ml-0 max-md:w-full aos-init aos-animate">
                 <div className="flex flex-col mt-3.5 max-md:mt-10">
                   <h2 className="self-start text-3xl md:text-4xl font-bold text-color-black">
                     Dilengkapi dengan fasilitas terbaik
@@ -113,7 +126,7 @@ return (
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col ml-5 w-3/5 max-md:ml-0 max-md:w-full">
+              <div data-aos="fade-left" className="flex flex-col ml-5 w-3/5 max-md:ml-0 max-md:w-full aos-init aos-animate">
                 <div className="flex flex-wrap grow gap-6 justify-between items-start max-md:mt-10">
                   {facilities.map((facility, index) => (
                     <CardFasilitas key={index} icon={facility.icon} title={facility.title} />
@@ -144,7 +157,7 @@ return (
                   </Button>
                 </a>
               </div>
-              <div className="flex flex-col ml-5 w-3/5 max-md:ml-0 max-md:w-full height-[1000px]">
+              <div data-aos="fade-right" className="flex flex-col ml-5 w-3/5 max-md:ml-0 max-md:w-full height-[1000px] aos-init aos-animate">
                 <div className="rounded-xl overflow-hidden">
                 <Map
                 />
@@ -158,7 +171,7 @@ return (
         <section id="review" className="w-full py-12 md:py-20 lg:py-28 bg-color-pink font-['Geist']">
           <div className="container max-w-[1280px] max-md:max-w-full mx-auto">
             <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl mb-8 text-center text-color-black">Apa kata mereka</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div data-aos="fade-up" className="grid grid-cols-1 md:grid-cols-3 gap-6 aos-init aos-animate">
               {[
                 {
                   name: "Isabella Chavez",
@@ -210,7 +223,7 @@ return (
               Ketentuan dan Peraturan
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
+              <Card data-aos="fade-right" className="aos-init aos-animate">
                 <CardHeader>
                   <CardTitle className="text-color-red">Ketentuan</CardTitle>
                 </CardHeader>
@@ -224,7 +237,7 @@ return (
                   </ul>
                 </CardContent>
               </Card>
-              <Card>
+              <Card data-aos="fade-left" className="aos-init aos-animate">
                 <CardHeader>
                   <CardTitle className="text-color-red">Peraturan</CardTitle>
                 </CardHeader>
@@ -245,10 +258,10 @@ return (
         {/* CTA */}
         <section className="w-full md:h-[8.802vw] py-24 md:aspect-ratio[1920/1080] aspect-ratio[430/226] p-8 flex flex-col justify-center items-center bg-color-pink relative font-['Geist']">
           <div className="w-[fit-content] flex md:flex-row flex-col items-center justify-center mx-auto">
-            <h1 className="text-[6vw] md:text-3xl text-center font-bold md:mr-[1.5vw] text-color-black">
+            <h1 data-aos="fade-right"  className="aos-init aos-animate text-[6vw] md:text-3xl text-center font-bold md:mr-[1.5vw] text-color-black">
               Ingin liburan yang pas?
             </h1>
-            <a href="https://wa.me/62817379195" target="_blank" rel="noopener noreferrer" >
+            <a data-aos="fade-left" className="aos-init aos-animate" href="https://wa.me/62817379195" target="_blank" rel="noopener noreferrer" >
               <Button variant="default" className="mr-auto hover:scale-[102%] transition-all duration-700 ease-in-out">
                 Hubungi Kami
               </Button>
