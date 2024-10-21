@@ -50,7 +50,7 @@ export default function Navbar() {
     //   </header>
       
         // New Navbar
-        <header className={`fixed top-0 left-0 right-0 z-50 x-2rem lg:px-[6rem] xl:px-[10rem] py-4 h-[14] flex items-center justify-between transition-all duration-300 ${isScrolled ? 'bg-white shadow-md bg-opacity-90' : 'bg-transparent'}`}>
+        <header className={`fixed top-0 left-0 right-0 z-[9999999] x-2rem lg:px-[6rem] xl:px-[10rem] py-4 h-[14] flex items-center justify-between transition-all duration-300 ${isScrolled ? 'bg-white shadow-md bg-opacity-90' : 'bg-transparent'}`}>
         <div className="flex items-center font-['Geist']">
           <Link href="#" className="flex items-center justify-center mr-4">
             <div className={`hover:scale-110 transition-transform duration-300 will-change-transform ${isScrolled ? '' : 'filter invert'}`}>
