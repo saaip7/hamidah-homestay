@@ -10,6 +10,7 @@ import { Card, CardContent,  CardHeader, CardTitle } from "@/components/card";
 import { Copyright } from "lucide-react";
 import { FaWhatsapp, FaInstagram  } from "react-icons/fa";
 import Navbar from "@/components/navbar";
+import Navbar2 from "@/components/navbar";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -26,6 +27,8 @@ export default function Home() {
 			duration: 1500,
       once: false
 		});
+
+
 	}, []);
 
 
@@ -48,6 +51,10 @@ export default function Home() {
 
 return (
     <div className="relative">
+      {/* <header className={`fixed top-0 left-0 right-0 z-[9999999] x-2rem lg:px-[6rem] xl:px-[10rem] py-4 h-[14] flex items-center justify-between transition-all duration-300 ${isScrolled ? 'bg-white shadow-md bg-opacity-90' : 'bg-transparent'}`}>
+        
+      </header> */}
+
       <Navbar/>
       {/* Main Page */}
       <main className="flex-1">
