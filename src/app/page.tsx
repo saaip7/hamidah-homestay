@@ -10,7 +10,6 @@ import { Card, CardContent,  CardHeader, CardTitle } from "@/components/card";
 import { Copyright } from "lucide-react";
 import { FaWhatsapp, FaInstagram  } from "react-icons/fa";
 import Navbar from "@/components/navbar";
-import Navbar2 from "@/components/navbar";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
