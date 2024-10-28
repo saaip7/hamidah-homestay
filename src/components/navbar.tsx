@@ -22,8 +22,8 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md py-2 font-[`Geist`]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+      <div className="px-4rem lg:px-[6rem] xl:px-[10rem]">
+        <div className="flex justify-between h-16 px-4">
           <div className="flex items-center">
             {/* Logo */}
             <Link href="#" className="flex items-center justify-center mr-4">
@@ -33,20 +33,20 @@ export default function Navbar() {
             </Link>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:ml-6 md:flex md:space-x-6">
-              <Link href="#galeri" className="text-color-black hover:text-color-red px-3 py-2 rounded-md text-sm font-medium">
+            <div className="hidden md:ml-6 md:flex md:space-x-4">
+              <Link href="#galeri" className="text-color-black hover:text-color-red px-3 py-2 rounded-md text-sm font-bold">
                 Galeri
               </Link>
-              <Link href="#fasilitas" className="text-color-black hover:text-color-red px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="#fasilitas" className="text-color-black hover:text-color-red px-3 py-2 rounded-md text-sm font-bold">
                 Fasilitas
               </Link>
-              <Link href="#lokasi" className="text-color-black hover:text-color-red px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="#lokasi" className="text-color-black hover:text-color-red px-3 py-2 rounded-md text-sm font-bold">
                 Lokasi
               </Link>
-              <Link href="#review" className="text-color-black hover:text-color-red px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="#review" className="text-color-black hover:text-color-red px-3 py-2 rounded-md text-sm font-bold">
                 Review
               </Link>
-              <Link href="#peraturan" className="text-color-black hover:text-color-red px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="#peraturan" className="text-color-black hover:text-color-red px-3 py-2 rounded-md text-sm font-bold">
                 Peraturan
               </Link>
             </div>

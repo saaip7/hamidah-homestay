@@ -7,9 +7,6 @@ import {Carousel, CarouselPrevious, CarouselNext, CarouselContent, CarouselItem}
 import CardFasilitas from "@/components/cardFasilitas";
 import { Bed, CircleParking , Utensils , Wifi, TvMinimal, ShowerHead, Star   } from 'lucide-react'; 
 import { Card, CardContent,  CardHeader, CardTitle } from "@/components/card"; 
-import { Copyright } from "lucide-react";
-import { FaWhatsapp, FaInstagram  } from "react-icons/fa";
-import Navbar from "@/components/navbar";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -26,8 +23,6 @@ export default function Home() {
 			duration: 1500,
       once: false
 		});
-
-
 	}, []);
 
 
@@ -49,15 +44,9 @@ export default function Home() {
   ];
 
 return (
-    <div className="relative">
-      {/* <header className={`fixed top-0 left-0 right-0 z-[9999999] x-2rem lg:px-[6rem] xl:px-[10rem] py-4 h-[14] flex items-center justify-between transition-all duration-300 ${isScrolled ? 'bg-white shadow-md bg-opacity-90' : 'bg-transparent'}`}>
-        
-      </header> */}
-
-      <Navbar/>
-      {/* Main Page */}
-      <main className="flex-1">
-      <section className="relative w-full h-[900px]">
+    <div className="relative overflow-hidden">
+      <main className="flex-1 w-100%">
+      <section className="relative w-full h-[640px] md:h-[900px]">
           <Image 
             src="/img/hero.JPG?height=1080&width=1920&text=Homestay+Hero+Image" 
             fill 
@@ -66,9 +55,9 @@ return (
           />
           <div className="absolute inset-0 bg-black bg-opacity-40" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white font-['Geist']">
+            <div className="text-center text-white font-['Geist'] md:block px-6">
               <div data-aos="fade-down" className="aos-init aos-animate">
-                <h1 className="text-3xl font-semibold mb-2 font-['Geist']">
+                <h1 className="text-xl md:text-3xl font-semibold mb-0 md:mb-2 font-['Geist']">
                     Hamidah Homestay
                   </h1>
                   <h2 className="text-4xl tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-medium">
@@ -88,7 +77,7 @@ return (
         </section>
 
         {/* Galeri */}
-        <section id="galeri" className="w-full py-10 md:py-16 lg:py-24 bg-white">
+        <section id="galeri" className="w-[100%] py-10 md:py-16 lg:py-24 bg-white">
           <div className="container px-4 md:px-6 text-color-black font-['Geist'] justify-center items-center flex mx-auto">
             <div>
               <h2 className="text-2xl font-bold text-center sm:text-3xl md:text-4xl ">
@@ -146,7 +135,7 @@ return (
         {/* Lokasi */}
         <section id="lokasi" className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="w-full max-w-[1091px] max-md:max-w-full mx-auto font-['Geist'] ">
-            <div className="flex gap-5 max-md:flex-col">
+            <div className="flex gap-5 max-md:flex-col px-4 md:px-8">
               <div className="flex flex-col w-2/5 max-md:ml-0 max-md:w-full">
                 <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl text-color-black">
                   Lokasi Kami
@@ -175,7 +164,7 @@ return (
 
         {/* Review */}
         <section id="review" className="w-full py-12 md:py-20 lg:py-28 bg-color-pink font-['Geist']">
-          <div className="container max-w-[1280px] max-md:max-w-full mx-auto">
+          <div className="container max-w-[1280px] max-md:max-w-full mx-auto px-4 md:px-8">
             <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl mb-8 text-center text-color-black">Apa kata mereka</h2>
             <div data-aos="fade-up" className="grid grid-cols-1 md:grid-cols-3 gap-6 aos-init aos-animate">
               {[
@@ -224,7 +213,7 @@ return (
 
         {/* Peraturan */}
         <section id="peraturan" className="w-full py-12 md:py-22 lg:py-28 bg-white font-['Geist']">
-          <div className="container max-w-[1091px] max-md:max-w-full mx-auto ">
+          <div className="container max-w-[1091px] max-md:max-w-full mx-auto px-4 md:px-8">
             <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl mb-8 text-center text-color-black">
               Ketentuan dan Peraturan
             </h2>
@@ -274,87 +263,8 @@ return (
             </a>
           </div>
         </section>
+        
       </main>
-
-      {/* Footer */}
-      <footer>
-        <section className="w-full h-[122.093vw] md:h-[16.823vw] aspect-[430/525] md:aspect-[1920/1080] flex flex-col justify-start items-center bg-color-red relative font-['Geist'] text-color-white">
-        <div className="w-full h-[105.349vw] md:h-[12.917vw] p-[3vw] flex flex-col justify-center items-center relative">
-          <div className="w-[81.395vw] h-[fit-content] flex flex-col md:flex-row justify-between items-start relative">
-            <div className="flex items-center">
-              <Image
-                    src= "/img/Logo2.png"
-                    width={10000}
-                    height={10000}
-                    alt="logo hamidah homestay"
-                    className="w-[4.15vw] h-[4.15vw] filter invert"
-                  />
-              
-              <h1 className="text-[5.581vw] md:text-[1.25vw] font-bold text-color-white">
-                Hamidah Homestay
-              </h1> 
-            </div>
-            <div className="w-full md:w-[20.99vw]">
-              <h1 className="text-[4.186vw] md:text-[1.042vw] font-bold text-right">
-                Hamidah Homestay Sungailiat
-              </h1>
-              <p className="text-[3.721vw] md:text-[0.938vw] text-right">
-               Sungailiat, Sungai Liat, Bangka Regency, Bangka Belitung Islands 33211, Indonesia
-              </p>
-              <div className="flex items-end justify-end mt-2 gap-2">
-                <a href="https://www.instagram.com/hamidah.homestay/" target="_blank" rel="noopener noreferrer"               
-                >
-                  <FaInstagram   
-                    className="w-[1.8vw] h-[1.8vw] text-color-white hover:text-[#f87171] transition-all duration-300 ease-in-out"
-                  />
-
-                </a>
-                <a href="https://maps.app.goo.gl/KBrZEsX84y8dJre79" target="_blank" rel="noopener noreferrer"               
-                >
-                  <FaWhatsapp
-                  className="w-[1.8vw] h-[1.8vw] text-color-white hover:text-[#f87171] transition-all duration-300 ease-in-out"/>
-
-                </a>
-              </div>
-            </div>
-          </div>
-          </div>
-        <div className="w-full h-[16.744vw] md:h-[3.906vw] flex justify-center items-center bg-[#9E1515]">
-          <div className="h-[8.372vw] md:w-[81.395vw] md:h-[0.99vw] flex flex-row justify-between items-center">
-            <div className="flex items-center md:flex-row flex-col">
-              <div className="flex">
-                <Copyright
-                  className="w-[4.419vw] h-[4.419vw] md:w-[0.99vw] md:h-[0.99vw] mx-[0.2vw]"
-                />
-              </div>
-              <p className="text-[3vw] md:text-[0.833vw] font-semibold md:hidden">
-                2024 Hamidah Homestay. All rights reserved.
-              </p>
-              <p className="text-[3.256vw] md:text-[0.833vw] font-semibold md:block hidden">
-                2024 Hamidah Homestay. All rights reserved.
-              </p>
-            </div>
-            <div className="md:flex hidden">
-              <a href="#galeri" className="text-[0.833vw] font-bold hover:underline">
-                Galeri
-              </a>
-              <a href="#fasilitas" className="text-[0.833vw] font-bold ml-[1.25vw] hover:underline">
-                Fasilitas
-              </a>
-              <a href="#lokasi" className="text-[0.833vw] font-bold ml-[1.25vw] hover:underline">
-                Lokasi
-              </a>
-              <a href="#review" className="text-[0.833vw] font-bold ml-[1.25vw] hover:underline">
-                Review
-              </a>
-              <a href="#peraturan" className="text-[0.833vw] font-bold ml-[1.25vw] hover:underline">
-                Peraturan
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      </footer>
     <BackToTop />
     </div>
 );
