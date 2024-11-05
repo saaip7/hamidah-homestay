@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Head from "next/head";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,8 +17,13 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Hamidah Homestay",
-  description: "Best Homestay",
+  title: "Penginapan di Sungailiat Bangka | Hotel & Penginapan Murah",
+  description: "Temukan penginapan murah dan hotel di daerah Sungailiat, Bangka. Penginapan ideal untuk wisatawan yang mencari kenyamanan dengan harga terjangkau.",
+  keywords: [
+    "Penginapan di sungailiat bangka",
+    "Hotel sungailiat bangka",
+    "Penginapan murah daerah sungailiat",
+  ],
 };
 
 export default function RootLayout({
@@ -27,17 +33,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
+      <Head>
         <meta name="keywords" content="Penginapan di sungailiat bangka, Hotel sungailiat bangka, Penginapan murah daerah sungailiat" />
         <meta name="description" content="Temukan penginapan murah dan hotel di daerah Sungailiat, Bangka." />
-      </head>
-      <main>{children}</main>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      </Head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
-        {children}
-        <Footer/>
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
