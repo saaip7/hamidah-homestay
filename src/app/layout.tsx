@@ -27,6 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <meta name="keywords" content="Penginapan di sungailiat bangka, Hotel sungailiat bangka, Penginapan murah daerah sungailiat" />
+        <meta name="description" content="Temukan penginapan murah dan hotel di daerah Sungailiat, Bangka." />
+      </head>
+      <main>{children}</main>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
