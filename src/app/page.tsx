@@ -4,13 +4,13 @@ import Image from "next/image";
 
 import {Button} from "@/components/button";
 import {Carousel, CarouselPrevious, CarouselNext, CarouselContent, CarouselItem} from "@/components/carousel";
-import CardFasilitas from "@/components/cardFasilitas";
-import { Bed, CircleParking , Utensils , Wifi, TvMinimal, ShowerHead, Star   } from 'lucide-react'; 
 import { Card, CardContent,  CardHeader, CardTitle } from "@/components/card"; 
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+import ReviewSection from "@/components/reviewSection";
+import FacilitiesSection from "@/components/fasilitas";
 
 import dynamic from 'next/dynamic';
 
@@ -34,15 +34,6 @@ export default function Home() {
     "/galeri/5.JPG",
   ];
 
-  const facilities = [
-    { icon: <Bed className="w-10 h-10 "/>, title: "2 Kamar Tidur" },
-    { icon: <Wifi className="w-10 h-10 " />, title: "Wi-Fi" },
-    { icon: <Utensils className="w-10 h-10 " />, title: "Dapur & Ruang Makan" },
-    { icon: <TvMinimal  className="w-10 h-10 "/>, title: "Ruang Tamu" },
-    { icon: <CircleParking className="w-10 h-10 " />, title: "Lahan Parkir" },
-    { icon: <ShowerHead className="w-10 h-10"/>, title: "Kamar Mandi" }
-  ];
-
 return (
     <div className="relative overflow-hidden">
       <main className="flex-1 w-100%">
@@ -55,7 +46,7 @@ return (
           />
           <div className="absolute inset-0 bg-black bg-opacity-40" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white font-['Geist'] md:block px-6">
+            <div className="text-center text-white md:block px-6">
               <div data-aos="fade-down" className="aos-init aos-animate">
                 <h1 className="text-xl md:text-3xl font-semibold mb-0 md:mb-2 font-['Geist']">
                     Hamidah Homestay
@@ -86,7 +77,12 @@ return (
               <p className="text-center mt-2 text-color-gray">
                 Jelajahi setiap sudut homestay kami melalui galeri foto
               </p>
-              <Carousel data-aos="fade-up" className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto mt-8 aos-init aos-animate">
+              <Carousel 
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                data-aos="fade-up" className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto mt-8 aos-init aos-animate">
                 <CarouselContent>
                   {galeriCarousel.map((imageSrc, index) => (
                     <CarouselItem key={index} className="h-[450px]"> 
@@ -108,29 +104,7 @@ return (
         </section>
 
         {/* Fasilitas */}
-        <section id= "fasilitas" className="flex overflow-hidden flex-col justify-center items-center px-16 py-24 bg-color-pink max-md:px-5 font-['Geist']">
-          <div className="w-full max-w-[1091px] max-md:max-w-full">
-            <div className="flex gap-5 max-md:flex-col">
-              <div data-aos="fade-right" className="flex flex-col w-2/5 max-md:ml-0 max-md:w-full aos-init aos-animate">
-                <div className="flex flex-col mt-3.5 max-md:mt-10">
-                  <h2 className="self-start text-3xl md:text-4xl font-bold text-color-black">
-                    Dilengkapi dengan fasilitas terbaik
-                  </h2>
-                  <p className="mt-2 text-base leading-6 text-color-gray">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy
-                  </p>
-                </div>
-              </div>
-              <div data-aos="fade-left" className="flex flex-col ml-5 w-3/5 max-md:ml-0 max-md:w-full aos-init aos-animate">
-                <div className="flex flex-wrap grow gap-6 justify-between items-start max-md:mt-10">
-                  {facilities.map((facility, index) => (
-                    <CardFasilitas key={index} icon={facility.icon} title={facility.title} />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <FacilitiesSection />
 
         {/* Lokasi */}
         <section id="lokasi" className="w-full py-12 md:py-24 lg:py-32 bg-white">
@@ -163,53 +137,7 @@ return (
         </section>
 
         {/* Review */}
-        <section id="review" className="w-full py-12 md:py-20 lg:py-28 bg-color-pink font-['Geist']">
-          <div className="container max-w-[1280px] max-md:max-w-full mx-auto px-4 md:px-8">
-            <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl mb-8 text-center text-color-black">Apa kata mereka</h2>
-            <div data-aos="fade-up" className="grid grid-cols-1 md:grid-cols-3 gap-6 aos-init aos-animate">
-              {[
-                {
-                  name: "Isabella Chavez",
-                  comment: "You made it so simple. My new site is so much faster and easier to work with than my old site.",
-                  role: "Product Designer",
-                  rating: 5
-                },
-                {
-                  name: "Curtis Rhodes",
-                  comment: "Simply the best. Better than all the rest. I'd recommend this product to beginners and advanced users.",
-                  role: "Front-end Developer",
-                  rating: 5
-                },
-                {
-                  name: "Lucas Mann",
-                  comment: "Must have tool for all, who want to be Product Designer or Interaction Designer",
-                  role: "UX Designer",
-                  rating: 4
-                }
-              ].map((review, index) => (
-                <Card key={index}>
-                  <CardContent className="p-6">
-                    <div className="flex items-center mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-5 w-5 ${
-                            i < review.rating ? "text-yellow-400 fill-current" : "text-gray-300"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <p className="text-color-black mb-4">{review.comment}</p>
-                    <div>
-                      <p className="font-semibold text-color-red">{review.name}</p>
-                      <p className="text-sm text-color-gray">{review.role}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ReviewSection />
 
         {/* Peraturan */}
         <section id="peraturan" className="w-full py-12 md:py-22 lg:py-28 bg-white font-['Geist']">

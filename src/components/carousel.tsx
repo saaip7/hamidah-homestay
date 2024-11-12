@@ -206,7 +206,7 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full bg-color-red text-white",
+        "absolute h-8 w-8 rounded-full bg-color-red text-white hover:bg-[#E05353]",
         "hidden md:flex", // Hide on mobile, show on medium and larger screens
         orientation === "horizontal"
           ? "-left-12 top-1/2 -translate-y-1/2"
@@ -236,7 +236,7 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full bg-color-red text-white",
+        "absolute h-8 w-8 rounded-full bg-color-red text-white hover:bg-[#E05353]",
         "hidden md:flex", // Hide on mobile, show on medium and larger screens
         orientation === "horizontal"
           ? "-right-12 top-1/2 -translate-y-1/2"
