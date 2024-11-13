@@ -25,35 +25,67 @@ import { Star } from "lucide-react"
 const reviews = [
   {
     id: 1,
-    name: "Hilmi",
-    avatar: "/avatar/user1.jpg?height=40&width=40",
+    name: "Thomas",
+    avatar: "/avatar/Thomas.webp?height=40&width=40",
     date: "June 2021",
     rating: 5,
     comment: "The space is well-designed, makes it looks spacy and comfortable. The host assistance was great. Will definitely comeback in the future."
   },
   {
     id: 2,
-    name: "Dzaki",
+    name: "Ricard",
     avatar: "/avatar/user1.jpg?height=40&width=40",
-    date: "July 2021",
+    date: "March 2021",
     rating: 5,
-    comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    comment: "Bersih, aman, nyaman stay 3 hari disini... rekomended"
   },
   {
     id: 3,
-    name: "Hilmy",
+    name: "Timotius",
     avatar: "/avatar/user1.jpg?height=40&width=40",
-    date: "August 2021",
-    rating: 4,
-    comment: "Great experience overall! The place was exactly as described and the host was very responsive. Would recommend to others."
+    date: "December 2020",
+    rating: 5,
+    comment: "its way much better than any other hotels in town. the bed sheets is clean, smells good.the house is very clean with loft style. cozy for me. the amenities is complete the housekeeper is polite and fast respond.they also serve small breakfast. coffee tea sugar in house water dispenser ac all works good nearby cafe within 1KM walk it just all perfectly nice this make my trip. definitely will visit here again. thanks."
   },
   {
     id: 4,
-    name: "Dzaky",
+    name: "Zara ",
     avatar: "/avatar/user1.jpg?height=40&width=40",
-    date: "September 2021",
+    date: "August 2020",
     rating: 5,
-    comment: "Exceptional stay! Everything was perfect from start to finish. The attention to detail was impressive."
+    comment: "Ibu nya baik banget, rela nelpon nanya keadaan aman gak? Dan lain lain. Terus semuanya dah disiapin, mulai dari air gallon sampai handuk sikat gigi. Nanti semoga bisa nginep di homestay ini bareng temen temen."
+  },
+  {
+    id: 5,
+    name: "Mochamad ",
+    avatar: "/avatar/user1.jpg?height=40&width=40",
+    date: "January 2020",
+    rating: 5,
+    comment: "Housekeeper: friendly & understanding, very helpful with laundry & local tips. The house is close to the location very quick to respond in case of need. Host: easy to contact, kind & understanding, I have additional guests not charged. Location: in the heart of Sungai Liat, many conveniences from this strategic position. There's a lot to reach by just walking, such as markets, supermarkets, dining, laundry, city parks and the legendary coffee of TungTau. House: very clean and cozy. Small but feels spacious. The second floor can accommodate up to 5 adults. 1st floor so family place, dining, kitchen, living room, TV & bathroom. Great for family with kids and baby. RECOMMENDED. Will stay here again if holiday to Bangka.."
+  },
+  {
+    id: 6,
+    name: "Christian ",
+    avatar: "/avatar/user1.jpg?height=40&width=40",
+    date: "June 2019",
+    rating: 5,
+    comment: "The house is very spacious , it has a double height family+dining space that connects to the bedroom. Which I find it very nice and thoughtful on creating a bright and delightful space. Will definitely come back for our next Sungailiat Triathlon."
+  },
+  {
+    id: 7,
+    name: "Eira ",
+    avatar: "/avatar/user1.jpg?height=40&width=40",
+    date: "November 2018",
+    rating: 5,
+    comment: "cute place, big room, strategic location."
+  },
+  {
+    id: 8,
+    name: "Eira ",
+    avatar: "/avatar/user1.jpg?height=40&width=40",
+    date: "November 2018",
+    rating: 5,
+    comment: "Mendapatkan homestay minimalis yang sangat nyaman. Fasilitas yang disediakan juga sangat baik. Bu Sri dan Bu Yuyun nya sangat responsif terhadap permintaan apapun. Letaknya cukup strategis di belakang Puncak Toserba jadi kalau mau kepasar Sungai Liat juga gak terlalu jauh."
   }
 ]
 
