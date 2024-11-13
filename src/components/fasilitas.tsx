@@ -78,63 +78,6 @@ const facilities = [
   },
 ]
 
-const facilities2 = [
-  {
-    name: "2 Kamar Tidur",
-    icon: <Bed className="w-full h-full" />,
-    description: "Comfortable bedrooms with cozy beds and fresh linens.",
-    images: [
-      "/placeholder.svg?height=200&width=300&text=Bedroom+1",
-      "/placeholder.svg?height=200&width=300&text=Bedroom+2",
-      "/placeholder.svg?height=200&width=300&text=Bedroom+3",
-    ]
-  },
-  {
-    name: "Wi-Fi",
-    icon: <Wifi className="w-full h-full" />,
-    description: "High-speed internet access throughout the homestay.",
-    images: [
-      "/placeholder.svg?height=200&width=300&text=Wi-Fi+1",
-      "/placeholder.svg?height=200&width=300&text=Wi-Fi+2",
-    ]
-  },
-  {
-    name: "Dapur & Ruang Makan",
-    icon: <Utensils className="w-full h-full" />,
-    description: "Fully equipped kitchen and spacious dining area.",
-    images: [
-      "/placeholder.svg?height=200&width=300&text=Kitchen",
-      "/placeholder.svg?height=200&width=300&text=Dining+Area",
-    ]
-  },
-  {
-    name: "Ruang Tamu",
-    icon: <Tv className="w-full h-full" />,
-    description: "Comfortable living room with entertainment system.",
-    images: [
-      "/placeholder.svg?height=200&width=300&text=Living+Room+1",
-      "/placeholder.svg?height=200&width=300&text=Living+Room+2",
-    ]
-  },
-  {
-    name: "Lahan Parkir",
-    icon: <ParkingSquare className="w-full h-full" />,
-    description: "Secure parking area for your vehicles.",
-    images: [
-      "/placeholder.svg?height=200&width=300&text=Parking+Area",
-    ]
-  },
-  {
-    name: "Kamar Mandi",
-    icon: <ShowerHead className="w-full h-full" />,
-    description: "Clean and modern bathroom facilities.",
-    images: [
-      "/placeholder.svg?height=200&width=300&text=Bathroom+1",
-      "/placeholder.svg?height=200&width=300&text=Bathroom+2",
-    ]
-  },
-]
-
 export default function FacilitiesSection() {
   return (
     <section id= "fasilitas" className="flex overflow-hidden flex-col justify-center items-center px-16 py-24 bg-color-pink max-md:px-5 font-['Geist']">
@@ -159,7 +102,7 @@ export default function FacilitiesSection() {
                           <CardFasilitas icon={facility.icon} title={facility.name} />
                         </div>
                       </DialogTrigger>
-                      <DialogContent className="max-w-[360px] md:max-w-[600px] lg:max-w-[800px] mx-auto rounded">
+                      <DialogContent className="max-w-[360px] md:max-w-[560px] lg:max-w-[640px] mx-auto rounded">
                         <DialogHeader>
                           <DialogTitle className="flex items-center gap-2 text-xl">
                             <div className="w-6 h-6 text-pink-600">{facility.icon}</div>
