@@ -28,15 +28,16 @@ const facilities = [
     description: "Comfortable bedrooms with cozy beds and fresh linens.",
     images: [
       "/fasilitas/kamar.jpg?height=200&width=300&text=kamar+tidur",
-      "/fasilitas/kamar.jpg?height=200&width=300&text=kamar+tidur",
-    ]
+      "/galeri/kamar_2.png",
+      "/galeri/kamar_3.png",
+    ],
+    imageOrientation: "landscape"
   },
   {
     name: "Wi-Fi",
     icon: <Wifi className="w-full h-full" />,
     description: "High-speed internet access throughout the homestay.",
     images: [
-      "/fasilitas/wifi.jpg?height=200&width=300&text=Wi-Fi",
       "/fasilitas/wifi.jpg?height=200&width=300&text=Wi-Fi",
     ]
   },
@@ -46,7 +47,7 @@ const facilities = [
     description: "Fully equipped kitchen and spacious dining area.",
     images: [
       "/fasilitas/dapur.jpg?height=200&width=300&text=Kitchen+and+Dining",
-      "/fasilitas/dapur.jpg?height=200&width=300&text=Kitchen+and+Dining",
+      "/galeri/13_hamidahhomestay.jpg",
     ]
   },
   {
@@ -55,7 +56,6 @@ const facilities = [
     description: "Comfortable living room with entertainment system.",
     images: [
       "/fasilitas/rtamu.jpg?height=200&width=300&text=Living+Room",
-      "/fasilitas/rtamu.jpg?height=200&width=300&text=Living+Room",
     ]
   },
   {
@@ -63,8 +63,7 @@ const facilities = [
     icon: <ParkingSquare className="w-full h-full" />,
     description: "Secure parking area for your vehicles.",
     images: [
-      "/fasilitas/parkir.jpg?height=200&width=200&text=Parking",
-      "/fasilitas/parkir.jpg?height=200&width=200&text=Parking",
+      "/galeri/6_hamidahhomestay.jpg",
     ]
   },
   {
@@ -73,8 +72,10 @@ const facilities = [
     description: "Clean and modern bathroom facilities.",
     images: [
       "/fasilitas/kmandi.jpg?height=200&width=300&text=Bathroom",
-      "/fasilitas/kmandi.jpg?height=200&width=300&text=Bathroom",
-    ]
+      "/galeri/12_hamidahhomestay.jpg",
+      "/galeri/11_hamidahhomestay.jpg",
+    ],
+    imageOrientation: "portrait"
   },
 ]
 
@@ -119,13 +120,19 @@ export default function FacilitiesSection() {
                             <CarouselContent>
                               {facility.images.map((image, index) => (
                                 <CarouselItem key={index}>
-                                  <div className="p-1">
+                                  <div className="p-1 flex items-center justify-center h-[400px]">
                                     <Image
                                       src={image}
                                       alt={`${facility.name} image ${index + 1}`}
-                                      width={300}
-                                      height={200}
-                                      className="w-full h-auto rounded-lg"
+                                      width={600}
+                                      height={400}
+                                      className={`rounded-lg ${
+                                        facility.imageOrientation === "landscape"
+                                          ? "w-full h-full object-cover"
+                                          : facility.imageOrientation === "portrait"
+                                          ? "w-auto h-full object-contain"
+                                          : "w-full h-full object-cover"
+                                      }`}
                                     />
                                   </div>
                                 </CarouselItem>
