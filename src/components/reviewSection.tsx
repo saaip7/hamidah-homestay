@@ -19,14 +19,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Star } from "lucide-react"
+import { Star, User } from "lucide-react"
 
 // This would be your reviews data
 const reviews = [
   {
     id: 1,
     name: "Thomas",
-    avatar: "/avatar/Thomas.webp?height=40&width=40",
     date: "June 2021",
     rating: 5,
     comment: "The space is well-designed, makes it looks spacy and comfortable. The host assistance was great. Will definitely comeback in the future."
@@ -34,7 +33,6 @@ const reviews = [
   {
     id: 2,
     name: "Ricard",
-    avatar: "/avatar/user1.jpg?height=40&width=40",
     date: "March 2021",
     rating: 5,
     comment: "Bersih, aman, nyaman stay 3 hari disini... rekomended"
@@ -42,7 +40,6 @@ const reviews = [
   {
     id: 3,
     name: "Timotius",
-    avatar: "/avatar/user1.jpg?height=40&width=40",
     date: "December 2020",
     rating: 5,
     comment: "its way much better than any other hotels in town. the bed sheets is clean, smells good.the house is very clean with loft style. cozy for me. the amenities is complete the housekeeper is polite and fast respond.they also serve small breakfast. coffee tea sugar in house water dispenser ac all works good nearby cafe within 1KM walk it just all perfectly nice this make my trip. definitely will visit here again. thanks."
@@ -50,7 +47,6 @@ const reviews = [
   {
     id: 4,
     name: "Zara ",
-    avatar: "/avatar/user1.jpg?height=40&width=40",
     date: "August 2020",
     rating: 5,
     comment: "Ibu nya baik banget, rela nelpon nanya keadaan aman gak? Dan lain lain. Terus semuanya dah disiapin, mulai dari air gallon sampai handuk sikat gigi. Nanti semoga bisa nginep di homestay ini bareng temen temen."
@@ -58,7 +54,6 @@ const reviews = [
   {
     id: 5,
     name: "Mochamad ",
-    avatar: "/avatar/user1.jpg?height=40&width=40",
     date: "January 2020",
     rating: 5,
     comment: "Housekeeper: friendly & understanding, very helpful with laundry & local tips. The house is close to the location very quick to respond in case of need. Host: easy to contact, kind & understanding, I have additional guests not charged. Location: in the heart of Sungai Liat, many conveniences from this strategic position. There's a lot to reach by just walking, such as markets, supermarkets, dining, laundry, city parks and the legendary coffee of TungTau. House: very clean and cozy. Small but feels spacious. The second floor can accommodate up to 5 adults. 1st floor so family place, dining, kitchen, living room, TV & bathroom. Great for family with kids and baby. RECOMMENDED. Will stay here again if holiday to Bangka.."
@@ -66,7 +61,6 @@ const reviews = [
   {
     id: 6,
     name: "Christian ",
-    avatar: "/avatar/user1.jpg?height=40&width=40",
     date: "June 2019",
     rating: 5,
     comment: "The house is very spacious , it has a double height family+dining space that connects to the bedroom. Which I find it very nice and thoughtful on creating a bright and delightful space. Will definitely come back for our next Sungailiat Triathlon."
@@ -74,7 +68,6 @@ const reviews = [
   {
     id: 7,
     name: "Eira ",
-    avatar: "/avatar/user1.jpg?height=40&width=40",
     date: "November 2018",
     rating: 5,
     comment: "cute place, big room, strategic location."
@@ -82,7 +75,6 @@ const reviews = [
   {
     id: 8,
     name: "Eira ",
-    avatar: "/avatar/user1.jpg?height=40&width=40",
     date: "November 2018",
     rating: 5,
     comment: "Mendapatkan homestay minimalis yang sangat nyaman. Fasilitas yang disediakan juga sangat baik. Bu Sri dan Bu Yuyun nya sangat responsif terhadap permintaan apapun. Letaknya cukup strategis di belakang Puncak Toserba jadi kalau mau kepasar Sungai Liat juga gak terlalu jauh."
@@ -111,13 +103,9 @@ export default function ReviewSection() {
                 <Card className="border bg-white flex flex-col h-full">
                   <CardContent className="p-6 flex flex-col flex-1">
                     <div className="flex items-start gap-4 mb-4">
-                      <Image
-                        src={review.avatar}
-                        alt={`${review.name}'s avatar`}
-                        width={40}
-                        height={40}
-                        className="rounded-full object-cover w-10 h-10"
-                      />
+                      <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center flex-shrink-0">
+                        <User className="w-6 h-6 text-gray-500" />
+                      </div>
                       <div className="flex-1">
                         <h3 className="font-semibold text-color-black">{review.name}</h3>
                         <div className="flex items-center gap-1">
@@ -157,13 +145,9 @@ export default function ReviewSection() {
                             <DialogContent>
                               <DialogHeader>
                                 <DialogTitle className="flex items-center gap-2">
-                                  <Image
-                                    src={review.avatar}
-                                    alt={`${review.name}'s avatar`}
-                                    width={32}
-                                    height={32}
-                                    className="rounded-full"
-                                  />
+                                  <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center flex-shrink-0">
+                                    <User className="w-5 h-5 text-gray-500" />
+                                  </div>
                                   {review.name}
                                 </DialogTitle>
                                 <div className="flex items-center gap-1">
