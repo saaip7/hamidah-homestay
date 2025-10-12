@@ -4,13 +4,14 @@ import Image from "next/image";
 
 import {Button} from "@/components/button";
 import {Carousel, CarouselPrevious, CarouselNext, CarouselContent, CarouselItem} from "@/components/carousel";
-import { Card, CardContent,  CardHeader, CardTitle } from "@/components/card"; 
-import { useEffect } from "react";
+import { Card, CardContent,  CardHeader, CardTitle } from "@/components/card";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import ReviewSection from "@/components/reviewSection";
 import FacilitiesSection from "@/components/fasilitas";
+import ImageLightbox from "@/components/imageLightbox";
 
 import dynamic from 'next/dynamic';
 
@@ -18,6 +19,9 @@ const BackToTop = dynamic(() => import('@/components/backToTop'), { ssr: false }
 const Map = dynamic(() => import('@/components/Map/Map'), { ssr: false });
 
 export default function Home() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
   useEffect(() => {
 		AOS.init({
 			duration: 1500,
@@ -27,12 +31,33 @@ export default function Home() {
 
 
   const galeriCarousel = [
-    "/galeri/1.JPG",
-    "/galeri/2.JPG",
-    "/galeri/3.JPG",
-    "/galeri/4.JPG",
-    "/galeri/5.JPG",
+      "/galeri/1_hamidahhomestay.jpg",
+      "/galeri/10_hamidahhomestay.jpg",
+      "/galeri/2_hamidahhomestay.jpg",
+      "/galeri/4_hamidahhomestay.jpg",
+      "/galeri/5_hamidahhomestay.jpg",
+      "/galeri/6_hamidahhomestay.jpg",
+      "/galeri/7_hamidahhomestay.jpg",
+      "/galeri/8_hamidahhomestay.jpg",
+      "/galeri/9_hamidahhomestay.jpg",
+      "/galeri/13_hamidahhomestay.jpg",
+      "/galeri/14_hamidahhomestay.jpg",
+      "/galeri/11_hamidahhomestay.jpg",
+      "/galeri/12_hamidahhomestay.jpg",
   ];
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
+
+  const navigateLightbox = (index: number) => {
+    setLightboxIndex(index);
+  };
 
 return (
     <div className="relative overflow-hidden">
@@ -59,7 +84,7 @@ return (
                   </p>              
                   <div className="mt-6">
                   <a href="https://wa.me/62817379195" target="_blank" rel="noopener noreferrer" >
-                    <Button variant="default" className="mr-auto hover:scale-[102%] transition-all duration-700 ease-in-out">Hubungi Kami</Button>
+                    <Button variant="default" className="mr-auto hover:scale-[102%] transition-all duration-700 ease-in-out">Pesan Sekarang</Button>
                   </a>
                 </div>
               </div>
@@ -75,7 +100,7 @@ return (
                 Gallery Homestay
               </h2>
               <p className="text-center mt-2 text-color-gray">
-                Jelajahi setiap sudut homestay kami melalui galeri foto
+                Swipe kanan dan kiri untuk jelajahi setiap sudut homestay kami melalui galeri foto
               </p>
               <Carousel 
                 opts={{
@@ -85,14 +110,19 @@ return (
                 data-aos="fade-up" className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto mt-8 aos-init aos-animate">
                 <CarouselContent>
                   {galeriCarousel.map((imageSrc, index) => (
-                    <CarouselItem key={index} className="h-[450px]"> 
-                      <Image
-                      src={imageSrc}
-                      alt={`Homestay Image ${index + 1}`}
-                      width={1000}   
-                      height={600}   
-                      className="rounded-3xl object-cover w-full h-full" 
-                      />
+                    <CarouselItem key={index} className="h-[450px]">
+                      <div
+                        onClick={() => openLightbox(index)}
+                        className="cursor-pointer h-full"
+                      >
+                        <Image
+                        src={imageSrc}
+                        alt={`Homestay Image ${index + 1}`}
+                        width={1000}
+                        height={600}
+                        className="rounded-3xl object-cover w-full h-full hover:opacity-90 transition-opacity"
+                        />
+                      </div>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
@@ -186,7 +216,7 @@ return (
             </h1>
             <a data-aos="fade-left" className="aos-init aos-animate" href="https://wa.me/62817379195" target="_blank" rel="noopener noreferrer" >
               <Button variant="default" className="mr-auto hover:scale-[102%] transition-all duration-700 ease-in-out">
-                Hubungi Kami
+                Pesan Sekarang
               </Button>
             </a>
           </div>
@@ -194,6 +224,16 @@ return (
         
       </main>
     <BackToTop />
+
+    {/* Image Lightbox */}
+    {lightboxOpen && (
+      <ImageLightbox
+        images={galeriCarousel}
+        currentIndex={lightboxIndex}
+        onClose={closeLightbox}
+        onNavigate={navigateLightbox}
+      />
+    )}
     </div>
 );
 }
