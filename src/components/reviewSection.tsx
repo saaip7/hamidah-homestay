@@ -116,7 +116,7 @@ export default function ReviewSection() {
                         alt={`${review.name}'s avatar`}
                         width={40}
                         height={40}
-                        className="rounded-full"
+                        className="rounded-full object-cover w-10 h-10"
                       />
                       <div className="flex-1">
                         <h3 className="font-semibold text-color-black">{review.name}</h3>
