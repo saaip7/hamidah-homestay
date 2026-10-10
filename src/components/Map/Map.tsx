@@ -29,9 +29,9 @@ export default function Map() {
           {/* GOOGLE MAPS TILES */}
           <TileLayer
             attribution="Google Maps"
-            url="http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}" // regular
-            // url="http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}" // satellite
-            //url="http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}" // terrain
+            url="https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}" // regular
+            // url="https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}" // satellite
+            //url="https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}" // terrain
             maxZoom={20}
             subdomains={["mt0", "mt1", "mt2", "mt3"]}
           />

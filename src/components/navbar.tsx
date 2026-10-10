@@ -21,7 +21,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md py-2 font-[`Geist`]">
+    <nav style={{ top: 'var(--demo-banner-h, 0px)' }} className="fixed left-0 w-full z-50 bg-white shadow-md py-2 font-[`Geist`]">
       <div className="px-4rem lg:px-[6rem] xl:px-[10rem]">
         <div className="flex justify-between h-16 px-4">
           <div className="flex items-center">

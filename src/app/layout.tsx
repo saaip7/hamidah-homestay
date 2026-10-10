@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import DemoBanner from "@/components/demoBanner";
 import Head from "next/head";
 
 const geistSans = localFont({
@@ -38,6 +39,7 @@ export default function RootLayout({
         <meta name="description" content="Temukan penginapan murah dan hotel di daerah Sungailiat, Bangka." />
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <DemoBanner />
         <Navbar />
         <main>{children}</main>
         <Footer />

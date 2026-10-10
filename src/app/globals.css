@@ -10,6 +10,11 @@
 
 body {
   font-family:  'Geist';
+  padding-top: var(--demo-banner-h, 0px);
+}
+
+html {
+  scroll-padding-top: var(--demo-banner-h, 0px);
 }
 
 
